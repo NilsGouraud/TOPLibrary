@@ -1,0 +1,160 @@
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+/*reset end*/
+
+
+
+:root{
+    --mainColor:#2563eb;
+}
+
+
+form{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: repeat(5,1fr);
+    align-items: center;
+    row-gap: 0.3rem;
+    margin-bottom: 0.3rem;
+}
+input{
+    border-radius: 30px;
+    border-color: rgba(0, 0, 0, 0.438);
+    height: 1rem;
+}
+input[type="checkbox"]{
+    accent-color: red;
+    box-shadow: inset 0 0 1px 1px red;
+    padding: 0px;
+    margin: 0px;
+    width: 1rem;
+}
+button[type="button"]{
+    grid-area:5/1/6/3;
+    width:30%;
+    margin: auto;
+    border-radius: 30px;
+    background-color: var(--mainColor);
+    color: white;
+    border: 1px solid transparent;
+    transition: 0.3s;
+}
+button[type="button"]:hover{
+    background-color: white;
+    width:32%;
+    color: black;
+    letter-spacing: 0.05rem;
+    border: 1px solid var(--mainColor);
+    cursor: pointer;
+}
+button[type="button"]:active{
+    background-color: var(--mainColor);
+    color: white;
+    width:30%;
+    letter-spacing: 0rem;
+    transform: rotateX(25deg);
+    border: 1px solid var(--mainColor);
+    transition: 0.1s;
+}
+h1{
+    margin: 0 0 3% 10%;
+}
+/*
+h1::after{
+    content: '';
+    position: absolute;
+    width: 5rem;
+    height: 0.1rem;
+    border-bottom: 1px solid black;
+    background-color: red;
+}*/
+fieldset{
+    border-radius: 10px;
+    min-width: 50%;
+    border: 1px solid black;
+    padding: 2%;
+}
+label{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+}
+
+
+#libraryDisplay{
+    border: 1px solid black;
+    display: flex;
+    gap: 10px;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+.book{
+    border: 1px solid rgba(0, 0, 0, 0);
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-color: var(--mainColor);
+    color: white;
+    transition: 0.3s;
+    height: 5rem;
+}
+.book:hover{
+    background-color: white;
+    color: black;
+    letter-spacing: 0.05rem;
+    height: 7rem;
+    border: 1px solid var(--mainColor);
+    cursor: pointer;
+}
+.book:hover #libraryDisplay{
+    overflow: hidden;
+
+}

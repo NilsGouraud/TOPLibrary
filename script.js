@@ -118,7 +118,7 @@ function addBookToLibrary() {
       bookAuthor.innerHTML=library[stuff].author;
       
       let bookNumberOfPages=document.createElement("div");
-      bookNumberOfPages.innerHTML=library[stuff].numberOfPages;
+      bookNumberOfPages.innerHTML=library[stuff].numberOfPages+" pages";
       
       let bookIsRead=document.createElement("div");
       let bookIsReadText=document.createElement("span");

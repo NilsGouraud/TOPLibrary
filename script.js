@@ -52,7 +52,9 @@ function addBookToLibrary() {
       );
       library.push(bookToAdd);
       display();
+      return;
     }
+    alert("a book of the same name already exists");
   }
   
   

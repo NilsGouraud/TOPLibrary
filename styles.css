@@ -1,6 +1,6 @@
 /* http://meyerweb.com/eric/tools/css/reset/ 
-   v2.0 | 20110126
-   License: none (public domain)
+v2.0 | 20110126
+License: none (public domain)
 */
 
 html, body, div, span, applet, object, iframe,
@@ -16,46 +16,88 @@ article, aside, canvas, details, embed,
 figure, figcaption, footer, header, hgroup, 
 menu, nav, output, ruby, section, summary,
 time, mark, audio, video {
-	margin: 0;
-	padding: 0;
-	border: 0;
-	font-size: 100%;
-	font: inherit;
-	vertical-align: baseline;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
 }
 /* HTML5 display-role reset for older browsers */
 article, aside, details, figcaption, figure, 
 footer, header, hgroup, menu, nav, section {
-	display: block;
+    display: block;
 }
 body {
-	line-height: 1;
+    line-height: 1;
 }
 ol, ul {
-	list-style: none;
+    list-style: none;
 }
 blockquote, q {
-	quotes: none;
+    quotes: none;
 }
 blockquote:before, blockquote:after,
 q:before, q:after {
-	content: '';
-	content: none;
+    content: '';
+    content: none;
 }
 table {
-	border-collapse: collapse;
-	border-spacing: 0;
+    border-collapse: collapse;
+    border-spacing: 0;
 }
 /*reset end*/
 
-
-
-:root{
-    --mainColor:#2563eb;
+html{
+    width: 100vw;
+    height: 100vh;
 }
 
+:root{
+    --mainColor:#2196F3;
+    --transparentGrey:rgba(0, 0, 0, 0.295);
+    --validGreen:rgb(5, 141, 0);
+}
+
+main{
+    margin: 0 25%;
+    justify-content: center;
+}
+
+.overlay{
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    scale: 0;
+    background-color: rgba(0, 0, 0, 0);
+    transition: 0.2s;
+}
+.overlay.active{
+    scale: 1;
+    background-color: rgba(0, 0, 0, 0.226);
+}
+
+fieldset{
+    display: none;
+    background-color: white;
+    border-radius: 10px;
+    min-width: 50%;
+    border: 1px solid black;
+    padding: 2%;
+    scale: 0;
+}
+fieldset.active{
+    display: grid;
+    position: fixed;
+    width: 20%;
+    scale: 1;
+   
+}
 
 form{
+    
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-template-rows: repeat(5,1fr);
@@ -63,18 +105,13 @@ form{
     row-gap: 0.3rem;
     margin-bottom: 0.3rem;
 }
+
 input{
     border-radius: 30px;
     border-color: rgba(0, 0, 0, 0.438);
     height: 1rem;
 }
-input[type="checkbox"]{
-    accent-color: red;
-    box-shadow: inset 0 0 1px 1px red;
-    padding: 0px;
-    margin: 0px;
-    width: 1rem;
-}
+
 button[type="button"]{
     grid-area:5/1/6/3;
     width:30%;
@@ -114,12 +151,7 @@ h1::after{
     border-bottom: 1px solid black;
     background-color: red;
 }*/
-fieldset{
-    border-radius: 10px;
-    min-width: 50%;
-    border: 1px solid black;
-    padding: 2%;
-}
+
 label{
     display: flex;
     flex-direction: row;
@@ -137,7 +169,10 @@ label{
 .book{
     border: 1px solid rgba(0, 0, 0, 0);
     border-radius: 10px;
-    display: flex;
+    display: grid;
+    grid-template-columns: 1fr 0.1fr;
+    grid-template-rows: repeat(4,1fr);
+    grid-auto-flow: column;
     justify-content: center;
     align-items: center;
     flex-direction: column;
@@ -152,9 +187,95 @@ label{
     letter-spacing: 0.05rem;
     height: 7rem;
     border: 1px solid var(--mainColor);
+}
+
+.deleteButton{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 5px;
+    border: 1px solid rgba(2, 0, 129, 0.39);
+    background-color: rgba(255, 255, 255, 0.932);
+    height: 0.8rem;
+    width: 0.5rem;
+    transition: 0.2s;
+    
+}
+.deleteButton img{
+    height:0.5rem;
+    transition: 0.2s;
+    
+}
+.deleteButton:hover img{
+    filter: invert();
+    font-size: 800;
+    background-color: #00d9ff;
+    height: 1rem;
     cursor: pointer;
 }
-.book:hover #libraryDisplay{
-    overflow: hidden;
+.deleteButton:hover{
+    color: rgb(255, 255, 255);
+    background-color: red;
+    border: 1px solid #00d9ff;
+    height: 1rem;
+    cursor: pointer;
+}
 
+
+
+.switch{
+    position: relative;
+    display: inline-block;
+    border-radius: 30px;
+    cursor: pointer;
+    align-items: center;
+    height: 0.7rem;
+    width: 1.5rem;
+}
+div{
+    display: flex;
+    align-items: center;
+}
+.slider{
+    position: absolute;
+    background-color: var(--transparentGrey);
+    border-radius: 30px;
+    border: 2px solid black;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    transition: 0.3s;
+    
+}
+.slider::before{
+    position: absolute;
+    content: '✖';
+    color: var(--transparentGrey);
+    font-family: system-ui;
+    font-size: 0.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background-color: rgb(255, 255, 255);
+    height: 92%;
+    width: 40%;
+    top: 0.5px;
+    left: 1px;
+    transition: 0.3s;
+}
+.switch input:checked + .slider::before{
+    content: '✓';
+    font-size: 0.7rem;
+    color: var(--validGreen);
+    transform: translateX(0.8rem);
+}
+.switch input:checked + .slider{
+    background-color: var(--validGreen);
+}
+.switch input{
+    opacity: 0;
 }

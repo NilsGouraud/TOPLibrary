@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+    <main>
     <div>
         just a small box, don't mind it 
     </div>
@@ -14,25 +15,34 @@
         test
     </div>
     <br>
-    <fieldset><h1>Add a new book</h1>
+    <div class="overlay" id="overlay"></div>
+    <fieldset id="fieldset"><h1>Add a new book:</h1>
         <form action="" id="formNewBook">
             <label for="bookTitle">What is the title of the book?</label>
-                <input type="text" name="bookTitle" id="bookTitle"
-                value="dummy title">
-
+            <input type="text" name="bookTitle" id="bookTitle"
+            value="dummy title">
+            
             <label for="bookAuthor">What is the name of its author?</label>
-                <input type="text" name="bookAuthor" id="bookAuthor"
-                value="dummy author">
-
+            <input type="text" name="bookAuthor" id="bookAuthor"
+            value="dummy author">
+            
             <label for="bookNumberOfPages">How many pages does the book have?</label>
-                <input type="number" name="bookNumberOfPages" id="bookNumberOfPages"
-                value="42">
+            <input type="number" name="bookNumberOfPages" id="bookNumberOfPages"
+            value="42">
             
             <label for="isRead">Have you read it yet?</label>
-                <input type="checkbox" name="isRead" id="isRead">
+            <label class="switch">
+                <input type="checkbox" name="isRead" id="isRead" value="">
+                <span class="slider"></span>
+            </label>
             <button type="button" id="addBook">add book</button>
         </form>
     </fieldset>
+   
+    <button type="button" id="addBookButton">
+        click to add a book to the library
+    </button>
+    </main>
 </body>
 <script src="script.js"></script>
 </html>

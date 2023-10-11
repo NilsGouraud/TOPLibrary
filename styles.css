@@ -301,8 +301,6 @@ div{
 
 
 @media all and (max-width:1360px){
-    html{
-    }
     .book{
         gap: 0rem;
         height: 8rem;
